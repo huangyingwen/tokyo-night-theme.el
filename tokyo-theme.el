@@ -1,129 +1,144 @@
-;;; tokyo-theme.el --- tokyonight theme inspired by the neovim version -*- lexical-binding:t -*-
+;;; tokyo-night-theme.el --- A Spacemacs theme inspired by Tokyo Night Neovim theme
 
-;; Author: Rawley Fowler <rawleyfowler@gmail.com>
-;; URL: https://github.com/rawleyfowler/tokyonight-emacs
-
-;;; Commentary:
-;; You can find the neovim version here: https://github.com/folke/tokyonight.nvim
-
-;;; Code:
 (deftheme tokyo
-  "It's like tokyo, but at night (for emacs 24+)")
+  "A Spacemacs theme inspired by Tokyo Night Neovim theme")
 
-(let ((tokyo-bg "#24283b")
-      (tokyo-bg-dark "#1f2335")
-      (tokyo-bg-hl "#292e42")
-      (tokyo-fg "#c0caf5")
-      (tokyo-fg-1 "#a9b1d6")
-      (tokyo-fg-2 "#3b4261")
-      (tokyo-white "#ffffff")
-      (tokyo-black "#414868")
-      (tokyo-comment "#565f89")
-      (tokyo-dark "#545c7e")
-      (tokyo-dark+1 "#737aa2")
-      (tokyo-blue-1 "#394b70")
-      (tokyo-blue "#3d59a1")
-      (tokyo-blue+1 "#7aa2f7")
-      (tokyo-blue+2 "#2ac3d3")
-      (tokyo-blue+3 "#0db9d7")
-      (tokyo-blue+4 "#89ddff")
-      (tokyo-blue+5 "#b4f9f8")
-      (tokyo-cyan "#7dcfff")
-      (tokyo-magenta "#bb9af7")
-      (tokyo-magenta+1 "#ff007c")
-      (tokyo-purple "#9d7cd8")
-      (tokyo-orange "#ff9e64")
-      (tokyo-yellow "#e0af68")
-      (tokyo-green "#9ece6a")
-      (tokyo-teal-1 "#41a6b5")
-      (tokyo-teal "#1abc9c")
-      (tokyo-teal+1 "#73daca")
-      (tokyo-red-1 "#db4b4b")
-      (tokyo-red "#f7768e"))
-  (custom-theme-set-variables
-   'tokyo
-   '(frame-background-mode (quote dark)))
+(let ((class '((class color) (min-colors 89)))
+      (bg "#1a1b26")
+      (bg-dark "#16161e")
+      (bg-highlight "#292e42")
+      (bg-status "#1f2335")
+      (fg "#c0caf5")
+      (fg-dark "#a9b1d6")
+      (fg-gutter "#3b4261")
+      (blue "#7aa2f7")
+      (blue-dark "#7dcfff")
+      (cyan "#7dcfff")
+      (magenta "#bb9af7")
+      (magenta-dark "#c099ff")
+      (green "#9ece6a")
+      (green-dark "#73daca")
+      (yellow "#e0af68")
+      (yellow-dark "#ff9e64")
+      (red "#f7768e")
+      (red-dark "#ff7a93")
+      (orange "#ff9e64")
+      (purple "#9d7cd8")
+      (comment "#565f89")
+      (terminal-black "#414868")
+      (none "NONE"))
 
   (custom-theme-set-faces
-   'tokyo
+   'tokyo-night
 
-   ;; Uncategorized Coloring
-   `(border ((t ,(list :background tokyo-bg
-		       :foreground tokyo-bg-hl))))
-   `(cursor ((t (:background ,tokyo-white))))
-   `(default ((t ,(list :foreground tokyo-fg
-			:background tokyo-bg))))
-   `(fringe ((t ,(list :background tokyo-bg-dark
-		       :foreground tokyo-fg-2))))
-   `(link ((t (:foreground ,tokyo-dark+1 :underline t))))
-   `(link-visited ((t (:foreground ,tokyo-dark+1 :underline t))))
-   `(match ((t (:background ,tokyo-dark+1))))
-   `(shadow ((t (:foreground ,tokyo-dark+1))))
-   `(minibuffer-prompt ((t :foreground ,tokyo-magenta)))
-   `(region ((t (:background ,tokyo-bg-hl :foreground nil))))
-   `(secondary-selection ((t ,(list :background tokyo-bg-hl
-				    :foreground nil))))
-   `(trailing-whitespace ((t ,(list :foreground tokyo-white
-				    :background tokyo-red))))
-   `(tooltip ((t ,(list :background tokyo-bg-hl
-			:foreground tokyo-fg))))
-   `(success ((t (:foreground ,tokyo-green :weight bold))))
-   `(warning ((t (:foreground ,tokyo-orange :weight bold))))
-   `(tooltip ((t (:foreground ,tokyo-fg :background ,tokyo-fg))))
-     
-   ;; Calendar
-   `(holiday-face ((t (:foreground ,tokyo-red-1))))
+   ;; Basic faces
+   `(default ((,class (:background ,bg :foreground ,fg))))
+   `(cursor ((,class (:background ,blue))))
+   `(region ((,class (:background ,bg-highlight))))
+   `(highlight ((,class (:background ,bg-highlight))))
+   `(fringe ((,class (:background ,bg :foreground ,fg-gutter))))
+   `(mode-line ((,class (:background ,bg-status :foreground ,fg :box (:color ,bg-status :line-width 2)))))
+   `(mode-line-inactive ((,class (:background ,bg-dark :foreground ,comment :box (:color ,bg-dark :line-width 2)))))
+   `(minibuffer-prompt ((,class (:foreground ,blue :weight bold))))
+   `(vertical-border ((,class (:foreground ,bg-dark))))
 
-   ;; Compilation
-   `(compilation-info ((t ,(list :foreground tokyo-green
-				 :inherit 'unspecified))))
-   `(compilation-warning ((t ,(list :foreground tokyo-yellow
-				    :bold t
-				    :inherit 'unspecified))))
-   `(compilation-error ((t (:foreground ,tokyo-red))))
-   `(compilation-mode-line-failt ((t ,(list :foreground tokyo-red
-					    :weight 'bold
-					    :inherit 'unspecified))))
-   `(compilation-mode-line-exit ((t ,(list :foreground tokyo-green
-					   :weight 'bold
-					   :inherit 'unspecified))))
+   ;; Font lock faces
+   `(font-lock-builtin-face ((,class (:foreground ,magenta))))
+   `(font-lock-comment-face ((,class (:foreground ,comment :slant italic))))
+   `(font-lock-constant-face ((,class (:foreground ,magenta))))
+   `(font-lock-function-name-face ((,class (:foreground ,blue))))
+   `(font-lock-keyword-face ((,class (:foreground ,magenta :weight bold))))
+   `(font-lock-string-face ((,class (:foreground ,green))))
+   `(font-lock-type-face ((,class (:foreground ,yellow))))
+   `(font-lock-variable-name-face ((,class (:foreground ,orange))))
+   `(font-lock-warning-face ((,class (:foreground ,red :weight bold))))
 
-   ;; Custom
-   `(custom-state ((t (:foreground ,tokyo-green))))
+   ;; UI elements
+   `(button ((,class (:foreground ,blue :underline t))))
+   `(link ((,class (:foreground ,blue :underline t))))
+   `(link-visited ((,class (:foreground ,magenta :underline t))))
+   `(header-line ((,class (:background ,bg-dark :foreground ,fg))))
+   `(tab-line ((,class (:background ,bg-dark :foreground ,fg-dark))))
+   `(tab-line-tab-inactive ((,class (:background ,bg-dark :foreground ,fg-dark))))
 
-   ;; Diff
-   `(diff-removed ((t ,(list :foreground tokyo-red
-			     :background nil))))
-   `(diff-added ((t ,(list :foreground tokyo-green
-			   :background nil))))
+   ;; Search and matching
+   `(isearch ((,class (:background ,green :foreground ,bg-dark))))
+   `(lazy-highlight ((,class (:background ,yellow :foreground ,bg-dark))))
+   `(match ((,class (:background ,green :foreground ,bg-dark))))
 
-   ;; Dired
-   `(dired-directory ((t (:foreground ,tokyo-magenta))))
-   `(dired-ignored ((t ,(list :foreground tokyo-blue+5
-			      :inherit 'unspecified))))
+   ;; Line numbers
+   `(line-number ((,class (:foreground ,fg-gutter))))
+   `(line-number-current-line ((,class (:foreground ,blue :weight bold))))
 
-   ;; Add ido support
-   `(ido-first-match ((t (:foreground ,tokyo-yellow :bold nil))))
-   `(ido-only-match ((t (:foreground ,tokyo-orange))))
-   `(ido-subdir ((t (:foreground ,tokyo-green))))
+   ;; Org-mode
+   `(org-level-1 ((,class (:foreground ,magenta :height 1.3 :weight bold))))
+   `(org-level-2 ((,class (:foreground ,blue :height 1.2 :weight bold))))
+   `(org-level-3 ((,class (:foreground ,green :height 1.1 :weight bold))))
+   `(org-level-4 ((,class (:foreground ,yellow :weight bold))))
+   `(org-level-5 ((,class (:foreground ,cyan :weight bold))))
+   `(org-level-6 ((,class (:foreground ,orange :weight bold))))
+   `(org-level-7 ((,class (:foreground ,purple :weight bold))))
+   `(org-level-8 ((,class (:foreground ,red :weight bold))))
+   `(org-code ((,class (:foreground ,green))))
+   `(org-date ((,class (:foreground ,cyan :underline t))))
+   `(org-todo ((,class (:foreground ,red :weight bold))))
+   `(org-done ((,class (:foreground ,green :weight bold))))
+   `(org-block ((,class (:background ,bg-dark :foreground ,fg))))
+   `(org-quote ((,class (:background ,bg-dark :slant italic))))
+   `(org-verse ((,class (:background ,bg-dark :slant italic))))
 
-   ;; eshell
-   `(eshell-ls-backup ((t (:foreground ,tokyo-orange))))
-   `(eshell-ls-directory ((t (:foreground ,tokyo-blue))))
-   `(eshell-ls-executable ((t (:foreground ,tokyo-green))))
-   `(eshell-ls-symlink ((t (:foreground ,tokyo-yellow))))
-   ))
+   ;; Helm
+   `(helm-source-header ((,class (:background ,bg-dark :foreground ,magenta :weight bold))))
+   `(helm-match ((,class (:foreground ,green))))
+   `(helm-selection ((,class (:background ,blue :foreground ,bg-dark))))
+   `(helm-candidate-number ((,class (:background ,bg-dark :foreground ,blue))))
+
+   ;; Company mode
+   `(company-tooltip ((,class (:background ,bg-dark :foreground ,fg))))
+   `(company-tooltip-selection ((,class (:background ,blue :foreground ,bg-dark))))
+   `(company-tooltip-common ((,class (:foreground ,green))))
+   `(company-tooltip-annotation ((,class (:foreground ,cyan))))
+   `(company-scrollbar-bg ((,class (:background ,bg-highlight))))
+   `(company-scrollbar-fg ((,class (:background ,blue))))
+
+   ;; Others
+   `(show-paren-match ((,class (:background ,blue :foreground ,bg-dark))))
+   `(show-paren-mismatch ((,class (:background ,red :foreground ,bg-dark))))
+   `(error ((,class (:foreground ,red :weight bold))))
+   `(warning ((,class (:foreground ,yellow :weight bold))))
+   `(success ((,class (:foreground ,green :weight bold))))
+   `(ivy-current-match ((,class (:background ,blue :foreground ,bg-dark))))
+   `(ivy-minibuffer-match-face-1 ((,class (:foreground ,fg-dark))))
+   `(ivy-minibuffer-match-face-2 ((,class (:foreground ,green))))
+   `(ivy-minibuffer-match-face-3 ((,class (:foreground ,green))))
+   `(ivy-minibuffer-match-face-4 ((,class (:foreground ,green))))
+
+   ;; Magit
+   `(magit-section-heading ((,class (:foreground ,blue :weight bold))))
+   `(magit-branch-local ((,class (:foreground ,green))))
+   `(magit-branch-remote ((,class (:foreground ,green))))
+   `(magit-tag ((,class (:foreground ,yellow))))
+   `(magit-hash ((,class (:foreground ,fg-dark))))
+   `(magit-diff-added ((,class (:foreground ,green))))
+   `(magit-diff-removed ((,class (:foreground ,red))))
+
+   ;; LSP and flycheck
+   `(lsp-face-highlight-textual ((,class (:background ,bg-highlight))))
+   `(flycheck-error ((,class (:underline (:color ,red :style wave)))))
+   `(flycheck-warning ((,class (:underline (:color ,yellow :style wave)))))
+   `(flycheck-info ((,class (:underline (:color ,blue :style wave)))))
+
+   ;; Tree-sitter (if available)
+   `(tree-sitter-hl-face:function.call ((,class (:foreground ,blue))))
+   `(tree-sitter-hl-face:property ((,class (:foreground ,cyan))))
+   `(tree-sitter-hl-face:keyword ((,class (:foreground ,magenta))))))
 
 ;;;###autoload
-(when load-file-name
+(when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
-	       (file-name-as-directory (file-name-directory load-file-name))))
+               (file-name-as-directory (file-name-directory load-file-name))))
 
+(provide-theme 'tokyo)
 (provide 'tokyo-theme)
-;; Local Variables:
-;; no-byte-compile: t
-;; indent-tabs-mode: nil
-;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode +1))
-;; End:
 
-;;; tokyo-theme.el ends here
+;;; tokyo-night-theme.el ends here
