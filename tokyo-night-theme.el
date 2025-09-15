@@ -1,6 +1,6 @@
-;;; tokyo-night-moon-theme.el --- A Spacemacs theme inspired by Tokyo Night Moon
+;;; tokyo-night-theme.el --- A Spacemacs theme inspired by Tokyo Night Moon
 
-(deftheme tokyo-night-moon
+(deftheme tokyo-night
   "A Spacemacs theme inspired by Tokyo Night Moon color scheme")
 
 (let ((class '((class color) (min-colors 89)))
@@ -29,7 +29,7 @@
       (none "NONE"))
 
   (custom-theme-set-faces
-   'tokyo-night-moon
+   'tokyo-night
 
    ;; Basic faces
    `(default ((,class (:background ,bg :foreground ,fg))))
@@ -138,7 +138,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'tokyo-night-moon)
-(provide 'tokyo-night-moon-theme)
+(provide-theme 'tokyo-night)
+(provide 'tokyo-night-theme)
 
-;;; tokyo-night-moon-theme.el ends here
+;;; tokyo-night-theme.el ends here
