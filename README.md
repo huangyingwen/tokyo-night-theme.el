@@ -1,4 +1,5 @@
-# tokyo-theme.el
+# tokyo-night-theme.el
+
 Tokyo Night style theme for Emacs 24+
 
 ![screenshot](https://i.imgur.com/yGBAVjV.png)
@@ -9,18 +10,21 @@ direct it there!
 ## Installing
 
 ```elisp
-(straight-use-package
- '(perltidy
-   :type git
-   :host github
-   :repo "rawleyfowler/tokyo-theme.el"
-   :branch "main"))
+(setq-default dotspacemacs-themes
+              '(
+                (tokyo-night-theme :location (recipe :fetcher github
+                                           :repo "huangyingwen/tokyo-night-theme.el"))
+                spacemacs-light
+                leuven
+                ))
 ```
 
 ## Contributing
+
 All contributions are welcome. I am not a very good Emacs Lisp programmer so any changes are welcome :)
 
 ## License
+
 This project is licensed under the Apache 2.0 License, the same as [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim), all copyright
 regarding the colors of the scheme are reserved to [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim), while the remaining code is
 licensed to Rawley Fowler & contributors.

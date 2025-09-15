@@ -1,6 +1,6 @@
 ;;; tokyo-night-theme.el --- A Spacemacs theme inspired by Tokyo Night Neovim theme
 
-(deftheme tokyo
+(deftheme tokyo-night
   "A Spacemacs theme inspired by Tokyo Night Neovim theme")
 
 (let ((class '((class color) (min-colors 89)))
@@ -138,7 +138,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'tokyo)
-(provide 'tokyo-theme)
+(provide-theme 'tokyo-night)
+(provide 'tokyo-night-theme)
 
 ;;; tokyo-night-theme.el ends here
