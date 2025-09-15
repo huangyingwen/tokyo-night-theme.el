@@ -1,35 +1,35 @@
-;;; tokyo-night-theme.el --- A Spacemacs theme inspired by Tokyo Night Neovim theme
+;;; tokyo-night-moon-theme.el --- A Spacemacs theme inspired by Tokyo Night Moon
 
-(deftheme tokyo-night
-  "A Spacemacs theme inspired by Tokyo Night Neovim theme")
+(deftheme tokyo-night-moon
+  "A Spacemacs theme inspired by Tokyo Night Moon color scheme")
 
 (let ((class '((class color) (min-colors 89)))
-      (bg "#1a1b26")
-      (bg-dark "#16161e")
-      (bg-highlight "#292e42")
-      (bg-status "#1f2335")
-      (fg "#c0caf5")
-      (fg-dark "#a9b1d6")
+      (bg "#222436")
+      (bg-dark "#1e2030")
+      (bg-highlight "#2f334d")
+      (bg-status "#252737")
+      (fg "#c8d3f5")
+      (fg-dark "#828bb8")
       (fg-gutter "#3b4261")
-      (blue "#7aa2f7")
-      (blue-dark "#7dcfff")
-      (cyan "#7dcfff")
-      (magenta "#bb9af7")
-      (magenta-dark "#c099ff")
-      (green "#9ece6a")
-      (green-dark "#73daca")
-      (yellow "#e0af68")
-      (yellow-dark "#ff9e64")
-      (red "#f7768e")
+      (blue "#82aaff")
+      (blue-dark "#65bcff")
+      (cyan "#86e1fc")
+      (magenta "#c099ff")
+      (magenta-dark "#b4a1fa")
+      (green "#c3e88d")
+      (green-dark "#4fd6be")
+      (yellow "#ffc777")
+      (yellow-dark "#ff966c")
+      (red "#ff757f")
       (red-dark "#ff7a93")
-      (orange "#ff9e64")
+      (orange "#ff966c")
       (purple "#9d7cd8")
-      (comment "#565f89")
-      (terminal-black "#414868")
+      (comment "#7a88cf")
+      (terminal-black "#444a73")
       (none "NONE"))
 
   (custom-theme-set-faces
-   'tokyo-night
+   'tokyo-night-moon
 
    ;; Basic faces
    `(default ((,class (:background ,bg :foreground ,fg))))
@@ -138,7 +138,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'tokyo-night)
-(provide 'tokyo-night-theme)
+(provide-theme 'tokyo-night-moon)
+(provide 'tokyo-night-moon-theme)
 
-;;; tokyo-night-theme.el ends here
+;;; tokyo-night-moon-theme.el ends here
